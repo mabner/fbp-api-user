@@ -74,15 +74,17 @@ Desta forma, teremos um total de três tabelas (user, user_address, user_contact
 
 ## Uso da aplicação
 
-### Criando o banco de dados:
+Iniciando o servidor PHP:
+
+```bash
+php -S localhost:80 -t public
+```
 
 Criando o banco de dados:
 
-```
+```bash
 php bin/console doctrine:database:create
 ```
-
-
 
 Criando as tabelas:
 
