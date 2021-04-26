@@ -12,7 +12,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_DATABASE: api-user
+          MYSQL_DATABASE: api_user
           MYSQL_ROOT_PASSWORD: root
         ports:
         -  3306:3306
