@@ -3,9 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
-use Symfony\Component\Validator\Constraint as Assert;
 
 /**
  * @ORM\Entity()
