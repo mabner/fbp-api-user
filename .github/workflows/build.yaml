@@ -3,11 +3,20 @@ name: "Build & Tests"
 on:
   push:
     branches:
-      - main # ou o nome do branch que vocês estão utilizando.
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: api-user
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+        -  3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 # Descomente essas duas linhas abaixo caso queira alterar o endereço de conexão com o banco de dados para o ambiente de testes. A recomendação é
 # ter um arquivo .env.test na raiz do projeto com esse endereço, mas em alguns pode ser necessário conectar em um endereço diferente.
 #    env:
