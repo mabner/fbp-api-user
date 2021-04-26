@@ -37,31 +37,31 @@ class UserAddress
     /**
      * @ORM\Column(type="string", length=80)
      */
-    private string $districtName;
+    private string $district_name;
 
     /**
      * @ORM\Column(type="string", length=120)
      */
-    private string $streetName;
+    private string $street_name;
 
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private string $houseNumber;
+    private string $house_number;
 
     /**
      * @ORM\Column(type="string", length=160)
      */
-    private string $addressComplement;
+    private string $address_complement;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $createdAt;
+    private \DateTime $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updatedAt = null;
+    private ?\DateTime $updated_at = null;
 
 }

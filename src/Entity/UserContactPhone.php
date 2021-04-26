@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
+//https://pt.chahaoba.com/Brasil
+//regexr.com/5rj28
 
 /**
  * @ORM\Entity()
@@ -20,7 +22,6 @@ class UserContactPhone
      */
     private ?int $id = null;
 
-//    https://pt.chahaoba.com/Brasil
     /**
      * @ORM\Column(type="integer")
      * @Assert\Range(
@@ -29,9 +30,8 @@ class UserContactPhone
      *      notInRangeMessage = "{{ value }} is not a valid area code.",
      * )
      */
-    private int $areaCode;
+    private int $area_code;
 
-//    regexr.com/5rj28
     /**
      * @ORM\Column(type="string", length=9)
      * @Assert\NotBlank(message="Phone number required.")
@@ -39,17 +39,17 @@ class UserContactPhone
      *     pattern     = "/^(\d{4})[-](\d{4})$"
      * )
      */
-    private string $phoneNumber;
+    private string $phone_number;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $createdAt;
+    private \DateTime $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updatedAt = null;
+    private ?\DateTime $updated_at = null;
 
 
 }

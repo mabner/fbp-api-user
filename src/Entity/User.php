@@ -29,7 +29,7 @@ class User
      *     minMessage="Fisrt name requires a minimum of 2 characters."
      * )
      */
-    private string $firstName;
+    private string $first_name;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -40,7 +40,7 @@ class User
      *     minMessage="Last name requires a minimum of 2 characters."
      * )
      */
-    private string $lastName;
+    private string $last_name;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -54,27 +54,27 @@ class User
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $createdAt;
+    private \DateTime $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updatedAt = null;
+    private ?\DateTime $updated_at = null;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserContactPhone",cascade="persist")
+     * @ORM\OneToMany(targetEntity="UserContactPhone", mappedBy="user", cascade="persist")
      * @ORM\JoinTable(
-     *      joinColumns={@ORM\JoinColumn(name="userId", referencedColumnName="id")},
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="phoneNumberId", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $userPhoneNumber; // ArrayCollection?
+    private $user_phone_number; // ArrayCollection?
 
     /**
-     * @ORM\OneToOne(targetEntity="UserAddress",cascade="persist")
-     * @ORM\JoinColumn(name="userAddressId", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="UserAddress", mappedBy="user", cascade="persist")
+     * @ORM\JoinColumn(name="user_address_id", referencedColumnName="id")
      */
-    private $userAddress;
+    private $user_address; // UserAddress ?
 
 
 }
