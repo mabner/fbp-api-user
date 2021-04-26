@@ -67,3 +67,26 @@ Desta forma, teremos um total de três tabelas (user, user_address, user_contact
 1. Enviar o link do repositório GitHub.
 2. Os desafios propostos não fazem parte da entrega e são opcionais. Quem precisar de
       mais detalhes pode entrar em contato comigo que ajudo caso necessário.
+
+
+
+------
+
+## Uso da aplicação
+
+### Criando o banco de dados:
+
+Criando o banco de dados:
+
+```
+php bin/console doctrine:database:create
+```
+
+
+
+Criando as tabelas:
+
+```bash
+php bin/console doctrine:schema:create
+```
+
