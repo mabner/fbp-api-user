@@ -64,6 +64,12 @@ class UserAddress
      */
     private ?\DateTime $updated_at = null;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="user_address", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
 
     /**
      * Get the value of id
@@ -82,7 +88,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setId(?int $id) : self
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -94,7 +100,7 @@ class UserAddress
      *
      * @return string
      */
-    public function getState() : string
+    public function getState(): string
     {
         return $this->state;
     }
@@ -106,7 +112,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setState(string $state) : self
+    public function setState(string $state): self
     {
         $this->state = $state;
 
@@ -118,7 +124,7 @@ class UserAddress
      *
      * @return string
      */
-    public function getCity() : string
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -130,18 +136,18 @@ class UserAddress
      *
      * @return self
      */
-    public function setCity(string $city) : self
+    public function setCity(string $city): self
     {
         $this->city = $city;
 
         return $this;
-
+    }
     /**
      * Get the value of district_name
      *
      * @return string
      */
-    public function getDistrictName() : string
+    public function getDistrictName(): string
     {
         return $this->district_name;
     }
@@ -153,7 +159,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setDistrictName(string $district_name) : self
+    public function setDistrictName(string $district_name): self
     {
         $this->district_name = $district_name;
 
@@ -165,7 +171,7 @@ class UserAddress
      *
      * @return string
      */
-    public function getStreetName() : string
+    public function getStreetName(): string
     {
         return $this->street_name;
     }
@@ -177,7 +183,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setStreetName(string $street_name) : self
+    public function setStreetName(string $street_name): self
     {
         $this->street_name = $street_name;
 
@@ -189,7 +195,7 @@ class UserAddress
      *
      * @return string
      */
-    public function getHouseNumber() : string
+    public function getHouseNumber(): string
     {
         return $this->house_number;
     }
@@ -201,7 +207,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setHouseNumber(string $house_number) : self
+    public function setHouseNumber(string $house_number): self
     {
         $this->house_number = $house_number;
 
@@ -213,7 +219,7 @@ class UserAddress
      *
      * @return string
      */
-    public function getAddressComplement() : string
+    public function getAddressComplement(): string
     {
         return $this->address_complement;
     }
@@ -225,7 +231,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setAddressComplement(string $address_complement) : self
+    public function setAddressComplement(string $address_complement): self
     {
         $this->address_complement = $address_complement;
 
@@ -237,7 +243,7 @@ class UserAddress
      *
      * @return \DateTime
      */
-    public function getCreatedAt() : \DateTime
+    public function getCreatedAt(): \DateTime
     {
         return $this->created_at;
     }
@@ -249,7 +255,7 @@ class UserAddress
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $created_at) : self
+    public function setCreatedAt(\DateTime $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -261,7 +267,7 @@ class UserAddress
      *
      * @return ?\DateTime
      */
-    public function getUpdatedAt() : ?\DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updated_at;
     }
@@ -276,6 +282,18 @@ class UserAddress
     public function setUpdatedAt(?\DateTime $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

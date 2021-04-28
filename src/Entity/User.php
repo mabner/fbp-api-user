@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
+//https://symfony.com/doc/current/doctrine/associations.html
+
 
 /**
  * @ORM\Entity()
@@ -26,7 +30,7 @@ class User
      * @Assert\Length(
      *     min=2,
      *     max=80,
-     *     minMessage="Fisrt name requires a minimum of 2 characters."
+     *     minMessage="First name requires a minimum of 2 characters."
      * )
      */
     private string $first_name;
@@ -62,21 +66,20 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserContactPhone", mappedBy="users", cascade="persist")
-     * @ORM\JoinTable(
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="phone_number_id", referencedColumnName="id", unique=true)}
-     *      )
+     * @ORM\OneToMany(targetEntity=UserContactPhone::class, mappedBy="user")
      */
-    private $user_phone_number; // ArrayCollection?
+    private $user_phone_number;
 
     /**
-     * @ORM\OneToOne(targetEntity="UserAddress", cascade="persist")
-     * @ORM\JoinColumn(name="user_address_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity=UserAddress::class, mappedBy="user", cascade={"persist", "remove"})
      */
-    private $user_address; // UserAddress ?
+    private $user_address;
 
 
+    public function __construct()
+    {
+        $this->user_phone_number = new ArrayCollection();
+    } // UserAddress ?
 
     /**
      * Get the value of id
@@ -254,6 +257,28 @@ class User
     public function setUserAddress($user_address): self
     {
         $this->user_address = $user_address;
+
+        return $this;
+    }
+
+    public function addUserPhoneNumber(UserContactPhone $userPhoneNumber): self
+    {
+        if (!$this->user_phone_number->contains($userPhoneNumber)) {
+            $this->user_phone_number[] = $userPhoneNumber;
+            $userPhoneNumber->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserPhoneNumber(UserContactPhone $userPhoneNumber): self
+    {
+        if ($this->user_phone_number->removeElement($userPhoneNumber)) {
+            // set the owning side to null (unless already changed)
+            if ($userPhoneNumber->getUser() === $this) {
+                $userPhoneNumber->setUser(null);
+            }
+        }
 
         return $this;
     }
