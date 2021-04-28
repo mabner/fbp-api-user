@@ -83,12 +83,11 @@ php -S localhost:80 -t public
 Criando o banco de dados:
 
 ```bash
-php bin/console doctrine:database:create
+php bin/console doctrine:database:create --env test
 ```
 
 Criando as tabelas:
 
 ```bash
-php bin/console doctrine:schema:create
+php bin/console doctrine:schema:create --env test
 ```
-
