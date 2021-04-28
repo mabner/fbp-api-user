@@ -26,7 +26,11 @@ class ListUserController
 
 		$repository = $this->entityManager->getRepository(User::class);
 		$users = $repository->findAll();
-		$response = $this->serializer->serialize($users, 'json');
+		$response = $this->serializer->serialize($users, 'json', [
+			'circular_reference_handler' => function ($object) {
+				return $object->getId();
+			}
+		]);
 
 		return JsonResponse::fromJsonString($response);
 	}
