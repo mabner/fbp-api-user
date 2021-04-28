@@ -62,19 +62,199 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserContactPhone", mappedBy="user", cascade="persist")
+     * @ORM\OneToMany(targetEntity="UserContactPhone", mappedBy="users", cascade="persist")
      * @ORM\JoinTable(
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="phoneNumberId", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="phone_number_id", referencedColumnName="id", unique=true)}
      *      )
      */
     private $user_phone_number; // ArrayCollection?
 
     /**
-     * @ORM\OneToOne(targetEntity="UserAddress", mappedBy="user", cascade="persist")
+     * @ORM\OneToOne(targetEntity="UserAddress", cascade="persist")
      * @ORM\JoinColumn(name="user_address_id", referencedColumnName="id")
      */
     private $user_address; // UserAddress ?
 
 
+
+    /**
+     * Get the value of id
+     *
+     * @return ?int
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param ?int $id
+     *
+     * @return self
+     */
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of first_name
+     *
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * Set the value of first_name
+     *
+     * @param string $first_name
+     *
+     * @return self
+     */
+    public function setFirstName(string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of last_name
+     *
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * Set the value of last_name
+     *
+     * @param string $last_name
+     *
+     * @return self
+     */
+    public function setLastName(string $last_name): self
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     *
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @param string $email
+     *
+     * @return self
+     */
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set the value of created_at
+     *
+     * @param \DateTime $created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updated_at
+     *
+     * @return ?\DateTime
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set the value of updated_at
+     *
+     * @param ?\DateTime $updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt(?\DateTime $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user_phone_number
+     */
+    public function getUserPhoneNumber()
+    {
+        return $this->user_phone_number;
+    }
+
+    /**
+     * Set the value of user_phone_number
+     */
+    public function setUserPhoneNumber($user_phone_number): self
+    {
+        $this->user_phone_number = $user_phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user_address
+     */
+    public function getUserAddress()
+    {
+        return $this->user_address;
+    }
+
+    /**
+     * Set the value of user_address
+     */
+    public function setUserAddress($user_address): self
+    {
+        $this->user_address = $user_address;
+
+        return $this;
+    }
 }
