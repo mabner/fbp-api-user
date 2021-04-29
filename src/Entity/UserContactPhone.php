@@ -57,6 +57,11 @@ class UserContactPhone
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
+
 
     /**
      * Get the value of id
@@ -102,6 +107,7 @@ class UserContactPhone
     public function setAreaCode(int $area_code): self
     {
         $this->area_code = $area_code;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -126,6 +132,7 @@ class UserContactPhone
     public function setPhoneNumber(string $phone_number): self
     {
         $this->phone_number = $phone_number;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }

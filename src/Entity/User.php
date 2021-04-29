@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
@@ -79,6 +78,7 @@ class User
     public function __construct()
     {
         $this->user_phone_number = new ArrayCollection();
+        $this->created_at = new \DateTime();
     } // UserAddress ?
 
     /**
@@ -125,6 +125,7 @@ class User
     public function setFirstName(string $first_name): self
     {
         $this->first_name = $first_name;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -149,6 +150,7 @@ class User
     public function setLastName(string $last_name): self
     {
         $this->last_name = $last_name;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -173,6 +175,7 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -239,6 +242,7 @@ class User
     public function setUserPhoneNumber($user_phone_number): self
     {
         $this->user_phone_number = $user_phone_number;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -257,6 +261,7 @@ class User
     public function setUserAddress($user_address): self
     {
         $this->user_address = $user_address;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }

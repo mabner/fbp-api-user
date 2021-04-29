@@ -73,7 +73,7 @@ Desta forma, teremos um total de três tabelas (user, user_address, user_contact
 ------
 
 ## Uso da aplicação
-
+<!-- Colocar instruções do Git clone e docker run da imagem do sql -->
 Iniciando o servidor PHP:
 
 ```bash

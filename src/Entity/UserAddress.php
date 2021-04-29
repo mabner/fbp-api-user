@@ -70,6 +70,12 @@ class UserAddress
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
+
+
 
     /**
      * Get the value of id
@@ -115,6 +121,7 @@ class UserAddress
     public function setState(string $state): self
     {
         $this->state = $state;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -139,6 +146,7 @@ class UserAddress
     public function setCity(string $city): self
     {
         $this->city = $city;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -162,6 +170,7 @@ class UserAddress
     public function setDistrictName(string $district_name): self
     {
         $this->district_name = $district_name;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -186,6 +195,7 @@ class UserAddress
     public function setStreetName(string $street_name): self
     {
         $this->street_name = $street_name;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -210,6 +220,7 @@ class UserAddress
     public function setHouseNumber(string $house_number): self
     {
         $this->house_number = $house_number;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -234,6 +245,7 @@ class UserAddress
     public function setAddressComplement(string $address_complement): self
     {
         $this->address_complement = $address_complement;
+        $this->updated_at = new \DateTime();
 
         return $this;
     }
