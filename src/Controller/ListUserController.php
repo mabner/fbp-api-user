@@ -19,6 +19,9 @@ class ListUserController
 	) {
 	}
 
+	/**
+	 * @Route("/", name="Users")
+	 */
 	#[Route("/users", methods: ["GET"])]
 	public function __invoke(): Response
 	{
