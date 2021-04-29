@@ -4,14 +4,15 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 
 class CreateUserController
 {
@@ -24,12 +25,12 @@ class CreateUserController
     }
 
     #[Route("/users", methods: ["POST"])]
-    function __invoke(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         // TODO: Implement __invoke() method.
         $user = $this->serializer->deserialize($request->getContent(), user::class, 'json');
 
-        $errors = $this->this->validator->validate($user);
+        $errors = $this->validator->validate($user);
 
         if (count($errors) > 0) {
             $violations = array_map(function (ConstraintViolationInterface $violation) {
@@ -50,8 +51,7 @@ class CreateUserController
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return new JsonResponse([
-            'status' => 'Ok',
+        return new JsonResponse(['status' => 'ok',
         ], Response::HTTP_CREATED, [
             'Location' => $this->router->generate('get_user', [
                 'id' => $user->getId(),

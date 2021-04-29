@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
 
+
 class ListUserController
 {
 	public function __construct(
@@ -29,11 +30,12 @@ class ListUserController
 
 		$repository = $this->entityManager->getRepository(User::class);
 		$users = $repository->findAll();
-		$response = $this->serializer->serialize($users, 'json', [
-			'circular_reference_handler' => function ($object) {
-				return $object->getId();
-			}
-		]);
+		// $response = $this->serializer->serialize($users, 'json', [
+		// 	'circular_reference_handler' => function ($object) {
+		// 		return $object->getId();
+		// 	}
+		// ]);
+		$response = $this->serializer->serialize($users, 'json');
 
 		return JsonResponse::fromJsonString($response);
 	}

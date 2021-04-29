@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
@@ -16,6 +18,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class UserContactPhone
 {
     /**
+     * @Groups("contact_phone")
+     * @MaxDepth(2)
      * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
@@ -52,6 +56,7 @@ class UserContactPhone
     private ?\DateTime $updated_at = null;
 
     /**
+     * @Groups("contact_phone")
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="user_phone_number")
      * @ORM\JoinColumn(nullable=false)
      */

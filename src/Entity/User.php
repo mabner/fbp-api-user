@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use App\Entity\UserAddress;
+use App\Entity\UserContactPhone;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
@@ -17,6 +21,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User
 {
     /**
+     * @Groups("user")
+     * @MaxDepth(2)
      * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
@@ -65,11 +71,13 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
+     * @Groups("user")
      * @ORM\OneToMany(targetEntity=UserContactPhone::class, mappedBy="user")
      */
     private $user_phone_number;
 
     /**
+     * @Groups("user")
      * @ORM\OneToOne(targetEntity=UserAddress::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $user_address;
