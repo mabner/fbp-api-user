@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "4d7d8441-ce79-4de4-b5d4-46743acd8d9e",
+		"name": "FBP - User-API",
+		"description": "API developed for the php backend framework subject.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"first_name\": \"Marcos\",\r\n        \"last_name\": \"Abner\",\r\n        \"email\": \"m.abner@live.co.uk\",\r\n        \"createdAt\": \"2021-04-28T03:28:54+00:00\",\r\n        \"userPhoneNumber\": [\r\n            {\r\n                \"areaCode\": 31,\r\n                \"phoneNumber\": \"985908283\",\r\n                \"createdAt\": \"2021-04-28T03:29:54+00:00\",\r\n                \"user\": 1\r\n            }\r\n        ],\r\n        \"userAddress\": {\r\n            \"state\": \"MG\",\r\n            \"city\": \"Belo Horizonte\",\r\n            \"districtName\": \"Havai\",\r\n            \"streetName\": \"Jose Cambraia\",\r\n            \"houseNumber\": \"75\",\r\n            \"addressComplement\": \"AP\",\r\n            \"createdAt\": \"2021-04-28T03:29:34+00:00\",\r\n            \"user\": 1\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User 1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"firstName\": \"Marcos\",\r\n        \"lastName\": \"Abnertyutyut\",\r\n        \"email\": \"m.abner@live.co.uk\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
