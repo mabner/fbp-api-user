@@ -5,7 +5,7 @@ namespace App\Tests\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CreateUserTest extends WebTestCase
+class CreateUserControllerTest extends WebTestCase
 {
     public function createUser(): void
     {
