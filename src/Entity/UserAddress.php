@@ -73,7 +73,6 @@ class UserAddress
     {
         $this->created_at = new \DateTime();
     }
-
     /**
      * Get the value of id
      *

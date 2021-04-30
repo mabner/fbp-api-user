@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class UserContactPhone
 {
     /**
-     * @Groups("contact_phone")
+     * @Groups("phone")
      * @MaxDepth(2)
      * @ORM\Id()
      * @ORM\Column(type="integer")

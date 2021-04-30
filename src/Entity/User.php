@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-use App\Entity\UserAddress;
-use App\Entity\UserContactPhone;
 use Doctrine\ORM\Mapping as ORM;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
@@ -71,11 +70,8 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
-     * @ORM\ManyToMany(targetEntity="UserContactPhone",cascade="persist")
-     * @ORM\JoinTable(
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="phonenumber_id", referencedColumnName="id", unique=true)}
-     *      )
+     * @ORM\OneToMany(targetEntity="UserContactPhone",cascade="persist", mappedBy="phone_id")
+     * @ORM\JoinColumn(name="phone_id", referencedColumnName="id")
      */
     private $user_phone_number; // ArrayCollection?
 
@@ -83,13 +79,15 @@ class User
      * @ORM\ManyToOne(targetEntity="UserAddress",cascade="persist")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      */
-    private $user_address; // UserAddress ?
+    private $user_address; // ArrayCollection?
 
 
     public function __construct()
     {
-        $this->user_phone_number = new ArrayCollection();
         $this->created_at = new \DateTime();
+        $this->user_phone_number = new ArrayCollection;
+        $this->user_address = new ArrayCollection;
+
     } // UserAddress ?
 
     /**
@@ -273,28 +271,6 @@ class User
     {
         $this->user_address = $user_address;
         $this->updated_at = new \DateTime();
-
-        return $this;
-    }
-
-    public function addUserPhoneNumber(UserContactPhone $userPhoneNumber): self
-    {
-        if (!$this->user_phone_number->contains($userPhoneNumber)) {
-            $this->user_phone_number[] = $userPhoneNumber;
-            $userPhoneNumber->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUserPhoneNumber(UserContactPhone $userPhoneNumber): self
-    {
-        if ($this->user_phone_number->removeElement($userPhoneNumber)) {
-            // set the owning side to null (unless already changed)
-            if ($userPhoneNumber->getUser() === $this) {
-                $userPhoneNumber->setUser(null);
-            }
-        }
 
         return $this;
     }
