@@ -16,7 +16,7 @@ class DeleteUserController
 	{
 	}
 
-	#[Route("/users/{id}", name: "delete_user", methods: ["DELETE"])]
+	#[Route("/users/{id}", name: "deleteUser", methods: ["DELETE"])]
 	public function __invoke(int $id): Response
 	{
 		// TODO: Implement __invoke() method.
@@ -24,8 +24,7 @@ class DeleteUserController
 		$user = $repository->find($id);
 
 		if (null === $user) {
-			return new JsonResponse([
-				'error' => 'User not found in registry.'
+			return new JsonResponse(['error' => 'User not found in the registry.'
 			], Response::HTTP_NOT_FOUND);
 		}
 
@@ -33,10 +32,10 @@ class DeleteUserController
 		$this->entityManager->flush();
 
 		return new JsonResponse(
-				[
-					'Success' => 'User deleted from the registry.'
-				],
-				Response::HTTP_ACCEPTED
-			);
+			[
+				'Success' => 'User deleted from the registry.'
+			],
+			Response::HTTP_ACCEPTED
+		);
 	}
 }

@@ -53,7 +53,7 @@ class CreateUserController
 
         return new JsonResponse(['status' => 'ok',
         ], Response::HTTP_CREATED, [
-            'Location' => $this->router->generate('get_user', [
+            'Location' => $this->router->generate('getUser', [
                 'id' => $user->getId(),
             ]),
         ]);

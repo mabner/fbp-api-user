@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 //https://symfony.com/doc/current/doctrine/associations.html
 //https://symfonycasts.com/screencast/symfony2-ep3/doctrine-inverse-relation
 
-//$this->updated_at = new \DateTime();
+//$this->updatedAt = new \DateTime();
 /**
  * @ORM\Entity()
  * @ORM\Table(name="user")
@@ -37,7 +37,7 @@ class User
      *     minMessage="First name requires a minimum of 2 characters."
      * )
      */
-    private string $first_name;
+    private string $firstName;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -48,7 +48,7 @@ class User
      *     minMessage="Last name requires a minimum of 2 characters."
      * )
      */
-    private string $last_name;
+    private string $lastName;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -62,31 +62,31 @@ class User
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $created_at;
+    private \DateTime $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updated_at = null;
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @ORM\OneToMany(targetEntity="UserContactPhone",cascade="persist", mappedBy="phone")
-     * @ORM\JoinColumn(name="phone_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="phoneId", referencedColumnName="id")
      */
-    private $user_phone_number; // ArrayCollection?
+    private $userPhoneNumber; // ArrayCollection?
 
 
     /**
      * @ORM\ManyToOne(targetEntity="UserAddress", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private $user_address; // ArrayCollection?
+    private $userAddress; // ArrayCollection?
 
     public function __construct()
     {
-        $this->created_at = new \DateTime();
-        $this->user_phone_number = new ArrayCollection;
-        $this->user_address = new ArrayCollection;
+        $this->createdAt = new \DateTime();
+        $this->userPhoneNumber = new ArrayCollection;
+        $this->userAddress = new ArrayCollection;
     } // UserAddress ?
 
     /**
@@ -114,49 +114,49 @@ class User
     }
 
     /**
-     * Get the value of first_name
+     * Get the value of firstName
      *
      * @return string
      */
     public function getFirstName(): string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     /**
-     * Set the value of first_name
+     * Set the value of firstName
      *
-     * @param string $first_name
+     * @param string $firstName
      *
      * @return self
      */
-    public function setFirstName(string $first_name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     /**
-     * Get the value of last_name
+     * Get the value of lastName
      *
      * @return string
      */
     public function getLastName(): string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     /**
-     * Set the value of last_name
+     * Set the value of lastName
      *
-     * @param string $last_name
+     * @param string $lastName
      *
      * @return self
      */
-    public function setLastName(string $last_name): self
+    public function setLastName(string $lastName): self
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -186,85 +186,85 @@ class User
     }
 
     /**
-     * Get the value of created_at
+     * Get the value of createdAt
      *
      * @return \DateTime
      */
     public function getCreatedAt(): \DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set the value of created_at
+     * Set the value of createdAt
      *
-     * @param \DateTime $created_at
+     * @param \DateTime $createdAt
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $created_at): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get the value of updated_at
+     * Get the value of updatedAt
      *
      * @return ?\DateTime
      */
     public function getUpdatedAt(): ?\DateTime
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**
-     * Set the value of updated_at
+     * Set the value of updatedAt
      *
-     * @param ?\DateTime $updated_at
+     * @param ?\DateTime $updatedAt
      *
      * @return self
      */
-    public function setUpdatedAt(?\DateTime $updated_at): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get the value of user_phone_number
+     * Get the value of userPhoneNumber
      */
     public function getUserPhoneNumber()
     {
-        return $this->user_phone_number;
+        return $this->userPhoneNumber;
     }
 
     /**
-     * Set the value of user_phone_number
+     * Set the value of userPhoneNumber
      */
-    public function setUserPhoneNumber($user_phone_number): self
+    public function setUserPhoneNumber($userPhoneNumber): self
     {
-        $this->user_phone_number = $user_phone_number;
+        $this->userPhoneNumber = $userPhoneNumber;
 
         return $this;
     }
 
     /**
-     * Get the value of user_address
+     * Get the value of userAddress
      */
     public function getUserAddress()
     {
-        return $this->user_address;
+        return $this->userAddress;
     }
 
     /**
-     * Set the value of user_address
+     * Set the value of userAddress
      */
-    public function setUserAddress($user_address): self
+    public function setUserAddress($userAddress): self
     {
-        $this->user_address = $user_address;
+        $this->userAddress = $userAddress;
 
         return $this;
     }

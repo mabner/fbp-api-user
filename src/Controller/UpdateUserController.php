@@ -31,8 +31,7 @@ class UpdateUserController
 		$user = $repository->find($id);
 
 		if (null === $user) {
-			return new JsonResponse([
-				'error' => 'User not found in registry.'
+			return new JsonResponse(['error' => 'User not found in the registry.'
 			], Response::HTTP_NOT_FOUND);
 		}
 

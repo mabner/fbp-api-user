@@ -35,7 +35,7 @@ class UserContactPhone
      *      notInRangeMessage = "{{ value }} is not a valid area code.",
      * )
      */
-    private int $area_code;
+    private int $areaCode;
 
     /**
      * @ORM\Column(type="string", length=9)
@@ -44,24 +44,24 @@ class UserContactPhone
      *     pattern     = "/^(\d{4})[-](\d{4})$"
      * )
      */
-    private string $phone_number;
+    private string $phoneNumber;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $created_at;
+    private \DateTime $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updated_at = null;
+    private ?\DateTime $updatedAt = null;
 
 
 
 
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -99,99 +99,99 @@ class UserContactPhone
     }
 
     /**
-     * Get the value of area_code
+     * Get the value of areaCode
      *
      * @return int
      */
     public function getAreaCode(): int
     {
-        return $this->area_code;
+        return $this->areaCode;
     }
 
     /**
-     * Set the value of area_code
+     * Set the value of areaCode
      *
-     * @param int $area_code
+     * @param int $areaCode
      *
      * @return self
      */
-    public function setAreaCode(int $area_code): self
+    public function setAreaCode(int $areaCode): self
     {
-        $this->area_code = $area_code;
-        $this->updated_at = new \DateTime();
+        $this->areaCode = $areaCode;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of phone_number
+     * Get the value of phoneNumber
      *
      * @return string
      */
     public function getPhoneNumber(): string
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
     /**
-     * Set the value of phone_number
+     * Set the value of phoneNumber
      *
-     * @param string $phone_number
+     * @param string $phoneNumber
      *
      * @return self
      */
-    public function setPhoneNumber(string $phone_number): self
+    public function setPhoneNumber(string $phoneNumber): self
     {
-        $this->phone_number = $phone_number;
-        $this->updated_at = new \DateTime();
+        $this->phoneNumber = $phoneNumber;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of created_at
+     * Get the value of createdAt
      *
      * @return \DateTime
      */
     public function getCreatedAt(): \DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set the value of created_at
+     * Set the value of createdAt
      *
-     * @param \DateTime $created_at
+     * @param \DateTime $createdAt
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $created_at): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get the value of updated_at
+     * Get the value of updatedAt
      *
      * @return ?\DateTime
      */
     public function getUpdatedAt(): ?\DateTime
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**
-     * Set the value of updated_at
+     * Set the value of updatedAt
      *
-     * @param ?\DateTime $updated_at
+     * @param ?\DateTime $updatedAt
      *
      * @return self
      */
-    public function setUpdatedAt(?\DateTime $updated_at): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

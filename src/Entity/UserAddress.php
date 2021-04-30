@@ -41,37 +41,37 @@ class UserAddress
     /**
      * @ORM\Column(type="string", length=80)
      */
-    private string $district_name;
+    private string $districtName;
 
     /**
      * @ORM\Column(type="string", length=120)
      */
-    private string $street_name;
+    private string $streetName;
 
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private string $house_number;
+    private string $houseNumber;
 
     /**
      * @ORM\Column(type="string", length=160)
      */
-    private string $address_complement;
+    private string $addressComplement;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $created_at;
+    private \DateTime $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?\DateTime $updated_at = null;
+    private ?\DateTime $updatedAt = null;
 
 
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
     /**
      * Get the value of id
@@ -117,7 +117,7 @@ class UserAddress
     public function setState(string $state): self
     {
         $this->state = $state;
-        $this->updated_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
@@ -142,154 +142,154 @@ class UserAddress
     public function setCity(string $city): self
     {
         $this->city = $city;
-        $this->updated_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
     /**
-     * Get the value of district_name
+     * Get the value of districtName
      *
      * @return string
      */
     public function getDistrictName(): string
     {
-        return $this->district_name;
+        return $this->districtName;
     }
 
     /**
-     * Set the value of district_name
+     * Set the value of districtName
      *
-     * @param string $district_name
+     * @param string $districtName
      *
      * @return self
      */
-    public function setDistrictName(string $district_name): self
+    public function setDistrictName(string $districtName): self
     {
-        $this->district_name = $district_name;
-        $this->updated_at = new \DateTime();
+        $this->districtName = $districtName;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of street_name
+     * Get the value of streetName
      *
      * @return string
      */
     public function getStreetName(): string
     {
-        return $this->street_name;
+        return $this->streetName;
     }
 
     /**
-     * Set the value of street_name
+     * Set the value of streetName
      *
-     * @param string $street_name
+     * @param string $streetName
      *
      * @return self
      */
-    public function setStreetName(string $street_name): self
+    public function setStreetName(string $streetName): self
     {
-        $this->street_name = $street_name;
-        $this->updated_at = new \DateTime();
+        $this->streetName = $streetName;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of house_number
+     * Get the value of houseNumber
      *
      * @return string
      */
     public function getHouseNumber(): string
     {
-        return $this->house_number;
+        return $this->houseNumber;
     }
 
     /**
-     * Set the value of house_number
+     * Set the value of houseNumber
      *
-     * @param string $house_number
+     * @param string $houseNumber
      *
      * @return self
      */
-    public function setHouseNumber(string $house_number): self
+    public function setHouseNumber(string $houseNumber): self
     {
-        $this->house_number = $house_number;
-        $this->updated_at = new \DateTime();
+        $this->houseNumber = $houseNumber;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of address_complement
+     * Get the value of addressComplement
      *
      * @return string
      */
     public function getAddressComplement(): string
     {
-        return $this->address_complement;
+        return $this->addressComplement;
     }
 
     /**
-     * Set the value of address_complement
+     * Set the value of addressComplement
      *
-     * @param string $address_complement
+     * @param string $addressComplement
      *
      * @return self
      */
-    public function setAddressComplement(string $address_complement): self
+    public function setAddressComplement(string $addressComplement): self
     {
-        $this->address_complement = $address_complement;
-        $this->updated_at = new \DateTime();
+        $this->addressComplement = $addressComplement;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
 
     /**
-     * Get the value of created_at
+     * Get the value of createdAt
      *
      * @return \DateTime
      */
     public function getCreatedAt(): \DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set the value of created_at
+     * Set the value of createdAt
      *
-     * @param \DateTime $created_at
+     * @param \DateTime $createdAt
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $created_at): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get the value of updated_at
+     * Get the value of updatedAt
      *
      * @return ?\DateTime
      */
     public function getUpdatedAt(): ?\DateTime
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**
-     * Set the value of updated_at
+     * Set the value of updatedAt
      *
-     * @param ?\DateTime $updated_at
+     * @param ?\DateTime $updatedAt
      *
      * @return self
      */
-    public function setUpdatedAt(?\DateTime $updated_at): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

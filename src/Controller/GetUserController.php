@@ -19,7 +19,7 @@ class GetUserController
 	) {
 	}
 
-	#[Route("/users/{id}", name: "get_user", methods: ["GET"])]
+	#[Route("/users/{id}", name: "getUser", methods: ["GET"])]
 	public function __invoke(int $id): Response
 	{
 		// TODO: Presenting 'circular reference has been detected' error.
