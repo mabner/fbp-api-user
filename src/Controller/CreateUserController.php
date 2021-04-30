@@ -28,7 +28,7 @@ class CreateUserController
     public function __invoke(Request $request): Response
     {
         // TODO: Implement __invoke() method.
-        $user = $this->serializer->deserialize($request->getContent(), user::class, 'json');
+        $user = $this->serializer->deserialize($request->getContent(), User::class, 'json');
 
         $errors = $this->validator->validate($user);
 

@@ -2,9 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\UserAddress;
-
-use App\Entity\UserContactPhone;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -15,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 //https://symfony.com/doc/current/doctrine/associations.html
 //https://symfonycasts.com/screencast/symfony2-ep3/doctrine-inverse-relation
 
-
+//$this->updated_at = new \DateTime();
 /**
  * @ORM\Entity()
  * @ORM\Table(name="user")
@@ -78,19 +75,18 @@ class User
      */
     private $user_phone_number; // ArrayCollection?
 
+
     /**
-     * @ORM\ManyToOne(targetEntity="UserAddress",cascade="persist")
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="UserAddress", cascade={"remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $user_address; // ArrayCollection?
-
 
     public function __construct()
     {
         $this->created_at = new \DateTime();
         $this->user_phone_number = new ArrayCollection;
         $this->user_address = new ArrayCollection;
-
     } // UserAddress ?
 
     /**
@@ -137,7 +133,6 @@ class User
     public function setFirstName(string $first_name): self
     {
         $this->first_name = $first_name;
-        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -162,7 +157,6 @@ class User
     public function setLastName(string $last_name): self
     {
         $this->last_name = $last_name;
-        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -187,7 +181,6 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
-        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -254,7 +247,6 @@ class User
     public function setUserPhoneNumber($user_phone_number): self
     {
         $this->user_phone_number = $user_phone_number;
-        $this->updated_at = new \DateTime();
 
         return $this;
     }
@@ -273,7 +265,24 @@ class User
     public function setUserAddress($user_address): self
     {
         $this->user_address = $user_address;
-        $this->updated_at = new \DateTime();
+
+        return $this;
+    }
+
+    /**
+     * Get the value of address
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set the value of address
+     */
+    public function setAddress($address): self
+    {
+        $this->address = $address;
 
         return $this;
     }

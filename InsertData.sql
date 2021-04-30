@@ -1,3 +1,6 @@
-INSERT INTO `user`(`id`, `address_id`, `first_name`, `last_name`, `email`, `created_at`, `updated_at`) VALUES (1, 1, 'Usuario', 'Teste', 'usuario.teste@bol.com.br', '2021-04-28 03:28:54', '2021-04-30 02:51:15');
-INSERT INTO `user_address`(`id`, `state`, `city`, `district_name`, `street_name`, `house_number`, `address_complement`, `created_at`, `updated_at`) VALUES (1, 'MG', 'Belo Horizonte', 'Bairro Vizinho', 'Avenida das Flores', '126', 'Casa', '2021-04-28 03:29:34', NULL);
-INSERT INTO `user_contact_phone`(`id`, `phone_id`, `area_code`, `phone_number`, `created_at`, `updated_at`) VALUES (1, 1, 31, '925258998', '2021-04-28 03:29:54', NULL);
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+
+
+SET FOREIGN_KEY_CHECKS = 1;

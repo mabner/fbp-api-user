@@ -293,4 +293,22 @@ class UserAddress
 
         return $this;
     }
+
+    /**
+     * Get the value of users
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set the value of users
+     */
+    public function setUsers($users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
 }

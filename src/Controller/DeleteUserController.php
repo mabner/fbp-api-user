@@ -32,6 +32,11 @@ class DeleteUserController
 		$this->entityManager->remove($user);
 		$this->entityManager->flush();
 
-		return new Response(status: Response::HTTP_NO_CONTENT);
+		return new JsonResponse(
+				[
+					'Success' => 'User deleted from the registry.'
+				],
+				Response::HTTP_ACCEPTED
+			);
 	}
 }
