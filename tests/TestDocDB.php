@@ -16,6 +16,9 @@ class TestDocDB extends WebTestCase
     protected EntityManagerInterface $eMI;
     protected KernelBrowser $client;
 
+    /**
+     * @test
+     */
     protected function start(): void
     {
         $this->client = self::createClient();

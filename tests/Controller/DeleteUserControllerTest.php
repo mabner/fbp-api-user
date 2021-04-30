@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DeleteUserControllerTest extends TestDocDB
 {
+    /**
+     * @test
+     */
     public function deleteUser(): void
     {
         $user = new User();

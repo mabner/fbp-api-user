@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UpdateUserControllerTest extends TestDocDB
 {
+    /**
+     * @test
+     */
     public function userUpdate(): void
     {
         $user = new User();

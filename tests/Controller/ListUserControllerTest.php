@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ListUserControllerTest extends TestDocDB
 {
+    /**
+     * @test
+     */
     public function listExistingUsersOK(): void
     {
         $user = new User();

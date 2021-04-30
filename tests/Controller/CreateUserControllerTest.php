@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class CreateUserControllerTest extends WebTestCase
 {
+    /**
+     * @test
+     */
     public function createUser(): void
     {
         $client = static::createClient();
