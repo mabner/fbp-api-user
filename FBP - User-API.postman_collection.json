@@ -30,14 +30,14 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"first_name\": \"Marcos\",\r\n        \"last_name\": \"Abner\",\r\n        \"email\": \"m.abner@live.co.uk\",\r\n        \"createdAt\": \"2021-04-28T03:28:54+00:00\",\r\n        \"userPhoneNumber\": [\r\n            {\r\n                \"areaCode\": 31,\r\n                \"phoneNumber\": \"985908283\",\r\n                \"createdAt\": \"2021-04-28T03:29:54+00:00\",\r\n                \"user\": 1\r\n            }\r\n        ],\r\n        \"userAddress\": {\r\n            \"state\": \"MG\",\r\n            \"city\": \"Belo Horizonte\",\r\n            \"districtName\": \"Havai\",\r\n            \"streetName\": \"Jose Cambraia\",\r\n            \"houseNumber\": \"75\",\r\n            \"addressComplement\": \"AP\",\r\n            \"createdAt\": \"2021-04-28T03:29:34+00:00\",\r\n            \"user\": 1\r\n        }\r\n    }\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+                  "mode": "raw",
+                  "raw": "[\r\n    {\r\n        \"firstName\": \"Marcossdfsfsdfsdfs\",\r\n        \"lastName\": \"Abner\",\r\n        \"email\": \"m.abner@live.co.uk\",\r\n        \"createdAt\": \"2021-04-30T02:36:13+00:00\",\r\n        \"userPhoneNumber\": [\r\n            {\r\n                \"areaCode\": 31,\r\n                \"phoneNumber\": \"98585874\",\r\n                \"createdAt\": \"2021-04-30T02:37:43+00:00\"\r\n            }\r\n        ],\r\n        \"userAddress\": {\r\n            \"state\": \"MG\",\r\n            \"city\": \"Belo Horizonte\",\r\n            \"districtName\": \"Centro\",\r\n            \"streetName\": \"Rua Teste\",\r\n            \"houseNumber\": \"9879\",\r\n            \"addressComplement\": \"Casa\",\r\n            \"createdAt\": \"2021-04-30T02:36:46+00:00\"\r\n        }\r\n    }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
 				"url": {
 					"raw": "http://localhost/users",
 					"protocol": "http",
@@ -80,29 +80,56 @@
 					"protocol": "http",
 					"host": [
 						"localhost"
-					],
-					"path": [
-						"users",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update User 1",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\": \"Marcos\",\r\n        \"lastName\": \"Abnertyutyut\",\r\n        \"email\": \"m.abner@live.co.uk\"\r\n    }\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+                    ],
+                  "path": [
+                    "users",
+                    "1"
+                  ]
+                }
+            },
+          "response": []
+        },
+      {
+        "name": "Post Partial",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "[\r\n    {\r\n        \"first_name\": \"Marcos\",\r\n        \"last_name\": \"Abner\",\r\n        \"email\": \"m.abner@live.co.uk\"\r\n    }\r\n]",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost/users",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Put User 1",
+        "request": {
+          "method": "PUT",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n        \"firstName\": \"Marcossdfsfsdfsdfs\",\r\n        \"lastName\": \"Abner\",\r\n        \"email\": \"m.abner@live.co.uk\"\r\n    }",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
 				"url": {
 					"raw": "http://localhost/users/1",
 					"protocol": "http",
