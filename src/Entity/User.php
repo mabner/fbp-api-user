@@ -268,22 +268,4 @@ class User
 
         return $this;
     }
-
-    /**
-     * Get the value of address
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set the value of address
-     */
-    public function setAddress($address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
 }
