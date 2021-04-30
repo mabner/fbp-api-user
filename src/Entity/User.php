@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use App\Entity\UserAddress;
 
+use App\Entity\UserContactPhone;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
@@ -70,7 +72,7 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserContactPhone",cascade="persist", mappedBy="phone_id")
+     * @ORM\OneToMany(targetEntity="UserContactPhone",cascade="persist", mappedBy="phone")
      * @ORM\JoinColumn(name="phone_id", referencedColumnName="id")
      */
     private $user_phone_number; // ArrayCollection?

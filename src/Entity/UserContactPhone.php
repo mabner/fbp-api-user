@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
@@ -59,6 +60,15 @@ class UserContactPhone
     {
         $this->created_at = new \DateTime();
     }
+
+    /**
+     * @ORM\ManyToOne(
+     *      targetEntity="User",
+     *      inversedBy="events"
+     * )
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    protected $phone;
 
 
     /**
