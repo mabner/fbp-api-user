@@ -55,13 +55,6 @@ class UserContactPhone
      */
     private ?\DateTime $updated_at = null;
 
-    /**
-     * @Groups("contact_phone")
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="user_phone_number")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
     public function __construct()
     {
         $this->created_at = new \DateTime();
@@ -186,18 +179,6 @@ class UserContactPhone
     public function setUpdatedAt(?\DateTime $updated_at): self
     {
         $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

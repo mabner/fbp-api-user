@@ -68,19 +68,11 @@ class UserAddress
      */
     private ?\DateTime $updated_at = null;
 
-    /**
-     * @Groups("address")
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="user_address", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
 
     public function __construct()
     {
         $this->created_at = new \DateTime();
     }
-
-
 
     /**
      * Get the value of id
@@ -299,18 +291,6 @@ class UserAddress
     public function setUpdatedAt(?\DateTime $updated_at): self
     {
         $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

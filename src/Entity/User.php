@@ -71,16 +71,19 @@ class User
     private ?\DateTime $updated_at = null;
 
     /**
-     * @Groups("user")
-     * @ORM\OneToMany(targetEntity=UserContactPhone::class, mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="UserContactPhone",cascade="persist")
+     * @ORM\JoinTable(
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="phonenumber_id", referencedColumnName="id", unique=true)}
+     *      )
      */
-    private $user_phone_number;
+    private $user_phone_number; // ArrayCollection?
 
     /**
-     * @Groups("user")
-     * @ORM\OneToOne(targetEntity=UserAddress::class, mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="UserAddress",cascade="persist")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      */
-    private $user_address;
+    private $user_address; // UserAddress ?
 
 
     public function __construct()
