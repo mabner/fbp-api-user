@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 //https://symfony.com/doc/current/validation.html
 //https://symfony.com/doc/current/doctrine/associations.html
+//https://symfonycasts.com/screencast/symfony2-ep3/doctrine-inverse-relation
 
 
 /**
