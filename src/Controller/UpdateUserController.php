@@ -36,8 +36,8 @@ class UpdateUserController
 			], Response::HTTP_NOT_FOUND);
 		}
 
-		$user->setFirstName($requestContent['first_name']);
-		$user->setLastName($requestContent['last_name']);
+		$user->setFirstName($requestContent['firstName']);
+		$user->setLastName($requestContent['lastName']);
 		$user->setEmail($requestContent['email']);
 
 		$errors = $this->validator->validate($user);
