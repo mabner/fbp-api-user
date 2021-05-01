@@ -8,9 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GetUserControllerTest extends TestDocDB
 {
-    /**
-     * @test
-     */
+
     public function getUserOK(): void
     {
         $user = new User();
