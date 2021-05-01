@@ -26,7 +26,7 @@ class User
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
      */
-    private ?int $id = null;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -100,20 +100,6 @@ class User
     }
 
     /**
-     * Set the value of id
-     *
-     * @param ?int $id
-     *
-     * @return self
-     */
-    public function setId(?int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get the value of firstName
      *
      * @return string
@@ -130,11 +116,9 @@ class User
      *
      * @return self
      */
-    public function setFirstName(string $firstName): self
+    public function setFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
-
-        return $this;
     }
 
     /**
@@ -154,11 +138,9 @@ class User
      *
      * @return self
      */
-    public function setLastName(string $lastName): self
+    public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
-
-        return $this;
     }
 
     /**
@@ -178,11 +160,9 @@ class User
      *
      * @return self
      */
-    public function setEmail(string $email): self
+    public function setEmail(string $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -196,20 +176,6 @@ class User
     }
 
     /**
-     * Set the value of createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get the value of updatedAt
      *
      * @return ?\DateTime
@@ -217,20 +183,6 @@ class User
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Set the value of updatedAt
-     *
-     * @param ?\DateTime $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**
@@ -244,11 +196,9 @@ class User
     /**
      * Set the value of userPhoneNumber
      */
-    public function setUserPhoneNumber($userPhoneNumber): self
+    public function setUserPhoneNumber($userPhoneNumber): void
     {
         $this->userPhoneNumber = $userPhoneNumber;
-
-        return $this;
     }
 
     /**
@@ -262,10 +212,8 @@ class User
     /**
      * Set the value of userAddress
      */
-    public function setUserAddress($userAddress): self
+    public function setUserAddress($userAddress): void
     {
         $this->userAddress = $userAddress;
-
-        return $this;
     }
 }

@@ -22,7 +22,7 @@ class UserAddress
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
      */
-    private ?int $id = null;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=2)
@@ -59,21 +59,6 @@ class UserAddress
     private string $addressComplement;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private \DateTime $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTime $updatedAt = null;
-
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime();
-    }
-    /**
      * Get the value of id
      *
      * @return ?int
@@ -81,20 +66,6 @@ class UserAddress
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @param ?int $id
-     *
-     * @return self
-     */
-    public function setId(?int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -114,12 +85,9 @@ class UserAddress
      *
      * @return self
      */
-    public function setState(string $state): self
+    public function setState(string $state): void
     {
         $this->state = $state;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
 
     /**
@@ -139,12 +107,9 @@ class UserAddress
      *
      * @return self
      */
-    public function setCity(string $city): self
+    public function setCity(string $city): void
     {
         $this->city = $city;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
     /**
      * Get the value of districtName
@@ -163,12 +128,9 @@ class UserAddress
      *
      * @return self
      */
-    public function setDistrictName(string $districtName): self
+    public function setDistrictName(string $districtName): void
     {
         $this->districtName = $districtName;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
 
     /**
@@ -188,12 +150,9 @@ class UserAddress
      *
      * @return self
      */
-    public function setStreetName(string $streetName): self
+    public function setStreetName(string $streetName): void
     {
         $this->streetName = $streetName;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
 
     /**
@@ -213,12 +172,9 @@ class UserAddress
      *
      * @return self
      */
-    public function setHouseNumber(string $houseNumber): self
+    public function setHouseNumber(string $houseNumber): void
     {
         $this->houseNumber = $houseNumber;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
 
     /**
@@ -238,59 +194,8 @@ class UserAddress
      *
      * @return self
      */
-    public function setAddressComplement(string $addressComplement): self
+    public function setAddressComplement(string $addressComplement): void
     {
         $this->addressComplement = $addressComplement;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
-    }
-
-    /**
-     * Get the value of createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set the value of createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of updatedAt
-     *
-     * @return ?\DateTime
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set the value of updatedAt
-     *
-     * @param ?\DateTime $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 }

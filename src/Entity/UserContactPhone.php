@@ -25,7 +25,7 @@ class UserContactPhone
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
      */
-    private ?int $id = null;
+    private int $id;
 
     /**
      * @ORM\Column(type="integer")
@@ -46,22 +46,9 @@ class UserContactPhone
      */
     private string $phoneNumber;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private \DateTime $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTime $updatedAt = null;
-
-
-
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -79,23 +66,9 @@ class UserContactPhone
      *
      * @return ?int
      */
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @param ?int $id
-     *
-     * @return self
-     */
-    public function setId(?int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -115,12 +88,9 @@ class UserContactPhone
      *
      * @return self
      */
-    public function setAreaCode(int $areaCode): self
+    public function setAreaCode(int $areaCode): void
     {
         $this->areaCode = $areaCode;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
     }
 
     /**
@@ -140,59 +110,8 @@ class UserContactPhone
      *
      * @return self
      */
-    public function setPhoneNumber(string $phoneNumber): self
+    public function setPhoneNumber(string $phoneNumber): void
     {
         $this->phoneNumber = $phoneNumber;
-        $this->updatedAt = new \DateTime();
-
-        return $this;
-    }
-
-    /**
-     * Get the value of createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set the value of createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of updatedAt
-     *
-     * @return ?\DateTime
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set the value of updatedAt
-     *
-     * @param ?\DateTime $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 }
